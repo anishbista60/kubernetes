@@ -223,8 +223,7 @@ func (s *ValidationTestBuilder) ValidateFixtures() {
 
 func randfiller() *randfill.Filler {
 	// Ensure that lists and maps are not empty and use a deterministic seed.
-	// But also, don't recurse infinitely.
-	return randfill.New().NilChance(0.0).NumElements(2, 2).MaxDepth(8).RandSource(rand.NewSource(0))
+	return randfill.New().NilChance(0.0).NumElements(2, 2).RandSource(rand.NewSource(0))
 }
 
 // ValueFuzzed automatically populates the given value using a deterministic filler.
